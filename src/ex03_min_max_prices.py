@@ -9,4 +9,16 @@ def min_max_prices(prices: list[float]) -> tuple[float, float]:
 
     - Si prices está vacía, lanza ValueError.
     """
-    raise NotImplementedError("Implementa min_max_prices(prices)")
+    if not prices:
+        raise ValueError("La lista de precios está vacía")
+
+    minimum = prices[0]
+    maximum = prices[0]
+
+    for price in prices[1:]:
+        if price < minimum:
+            minimum = price
+        if price > maximum:
+            maximum = price
+
+    return minimum, maximum
